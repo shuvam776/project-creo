@@ -9,34 +9,32 @@ function NavBar() {
   return (
     <>
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className='fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center space-y-8 md:hidden'>
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className='absolute top-6 right-6 text-white hover:text-pink-500'
-          >
-            <X size={32} />
-          </button>
-          <a href='#' className='text-2xl text-white font-bold'>
-            Home
-          </a>
-          <a href='#' className='text-2xl text-white font-bold'>
-            Why Participate?
-          </a>
-          <a href='#' className='text-2xl text-white font-bold'>
-            Event Details
-          </a>
-          <a href='#' className='text-2xl text-white font-bold'>
-            Our Guests
-          </a>
-          <a href='#' className='text-2xl text-white font-bold'>
-            FAQs
-          </a>
-          <Button className='bg-pink-600 hover:bg-pink-700 text-black rounded-none px-8 py-6 text-xl'>
-            Registration Now
-          </Button>
-        </div>
-      )}
+      <nav
+        className={`fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center space-y-8 md:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen
+            ? 'opacity-100 visible pointer-events-auto'
+            : 'opacity-0 invisible pointer-events-none'
+        }`}
+      >
+        <Button variant='ghost' className='text-white text-base font-normal'>
+          Home
+        </Button>
+        <Button variant='ghost' className='text-white text-base font-normal'>
+          Why Participate?
+        </Button>
+        <Button variant='ghost' className='text-white text-base font-normal'>
+          Event Details
+        </Button>
+        <Button variant='ghost' className='text-white text-base font-normal'>
+          Our Guests
+        </Button>
+        <Button variant='ghost' className='text-white text-base font-normal'>
+          FAQs
+        </Button>
+        <Button className='bg-pink-600 hover:bg-pink-700 text-black rounded-none px-8 py-6 text-xl'>
+          Registration Now
+        </Button>
+      </nav>
 
       {/* Desktop Container - centered and sized */}
       <div className='hidden md:flex items-end justify-center w-full pointer-events-auto'>
@@ -53,13 +51,7 @@ function NavBar() {
             </div>
 
             {/* Center: Desktop Nav Links */}
-            {/* Height matches button/container usually, but specs said whole navbar height 84. 
-                        The other elements are 71 and 70 high. This implies they are likely vertically centered or aligned bottom? 
-                        The nav links bar usually fills the remaining space or is sized. 
-                        The user image showed a dark bar. Let's make it fill height or align. 
-                        Image shows them aligned. Let's assume the nav bar fills the remaining width or just wraps links.
-                    */}
-            <nav className='flex-1 flex items-center justify-between bg-black/20 backdrop-blur-sm border border-white/10 px-6 h-[71px]'>
+            <nav className='flex-1 flex items-center justify-between bg-black/20 backdrop-blur-sm border border-white/10 px-6 min-h-[71px]'>
               <Button variant='ghost' className='text-white text-base font-normal'>
                 Home
               </Button>
@@ -86,9 +78,17 @@ function NavBar() {
       </div>
 
       {/* Mobile Header */}
-      <div className='flex md:hidden items-end justify-end w-full p-4 pointer-events-auto'>
-        <button className='text-white' onClick={() => setIsMenuOpen(true)}>
-          <Menu size={32} />
+      <div className='flex md:hidden items-end justify-end w-full p-4 pointer-events-auto relative z-9999'>
+        <button
+          className='text-white'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label='Toggle menu'
+        >
+          <div
+            className={`transition-transform duration-300 ease-in-out ${isMenuOpen ? 'rotate-90' : 'rotate-0'}`}
+          >
+            {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          </div>
         </button>
       </div>
     </>

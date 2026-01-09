@@ -1,5 +1,4 @@
-// import { Button } from '@/components/ui/button'
-import Hero from '@/components/hero/Home'
+import Hero from '@/components/hero/Hero'
 
 export default function HomePage() {
   return <Hero />

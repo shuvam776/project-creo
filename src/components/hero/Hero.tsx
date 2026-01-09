@@ -2,25 +2,19 @@ import imgs from '@/assets/imgs/HomePage'
 import logos from '@/assets/imgs/logo'
 import Countdown from './Countdown'
 import NavBar from '../navbar/NavBar'
+import { EffectScene } from '../glitcheffect/effect-scene'
 
 function Hero() {
   return (
     <div className='relative w-full min-h-screen overflow-hidden bg-black text-white font-sans'>
-      {/* Base Background - The blurry/texture layer */}
-      <div className='absolute inset-0 z-0'>
+      <EffectScene image={imgs.homebackgorundandLayer} />
+
+      {/*Secondary Background*/}
+      <div className='absolute inset-0 z-10 opacity-20'>
         <img
           src={imgs.background}
           alt='Background Texture'
-          className='w-full h-full object-cover opacity-100 mix-blend-color-dodge blur-sm grayscale'
-        />
-      </div>
-
-      {/* Main Background Layer - The human figure / main scene */}
-      <div className='absolute inset-0 z-10 w-full h-full'>
-        <img
-          src={imgs.homebackgorundandLayer}
-          alt='Main Background'
-          className='w-full h-full object-cover opacity-80 brightness-80'
+          className='w-full h-full object-fill opacity-100 mix-blend-color-dodge blur-xs grayscale'
         />
       </div>
 
@@ -57,22 +51,24 @@ function Hero() {
 
         {/* Header / Logos */}
         <div className='flex items-center gap-6 opacity-90 mb-4 mt-2 '>
-          <img src={logos.DesignTab} alt='DesignTab' className='h-4 md:h-8 object-contain' />
+          <img src={logos.DesignTab} alt='DesignTab' className='h-8 md:h-10 object-contain' />
           <span className='text-xs'>x</span>
-          <img src={logos.NES} alt='NES' className='h-4 md:h-4 object-contain' />
+          <img src={logos.NES} alt='NES' className='h-3 object-contain' />
           <span className='text-xs'>x</span>
-          <img src={logos.ECELL} alt='E-CELL' className='h-4 md:h-4 object-contain' />
+          <img src={logos.ECELL} alt='E-CELL' className='h-3 object-contain' />
           <span className='text-xs'>x</span>
-          <img src={logos.SAC} alt='SAC' className='h-6 md:h-10 object-contain' />
+          <img src={logos.SAC} alt='SAC' className='h-8 md:h-10 object-contain' />
         </div>
 
         {/* Main Hero Text */}
         <div className='flex flex-col items-center text-center space-y-2 mt-4 md:mt-0 shrink-0'>
-          <p className='text-xs font-fort md:text-sm tracking-[0.3em] uppercase mb-6'>Presents</p>
+          <p className='text-xs font-fort md:text-sm tracking-[0.3em] uppercase mb-10 md:mb-6'>
+            Presents
+          </p>
 
           {/* Stylized Title */}
           {/* Main Logo */}
-          <div className='mb-6'>
+          <div className='mb-10 md:mb-6'>
             <img
               src={logos.Creo26}
               alt="CREO '26"
@@ -85,7 +81,7 @@ function Hero() {
             <h2 className='font-fort font-normal text-[18px] sm:text-[18px] md:text-[50px] leading-none tracking-[-0.03em] text-center uppercase text-transparent [-webkit-text-stroke:1px_rgba(255,20,178,0.5)] opacity-60'>
               Create With No Limitations
             </h2>
-            <h2 className='font-fort font-normal text-[26px] sm:text-[36px] md:text-[69.59px] leading-none tracking-[-0.03em] text-center uppercase text-[rgba(255,20,178,1)] drop-shadow-[0_0_10px_rgba(255,20,178,0.5)] z-10'>
+            <h2 className='font-fort font-normal text-[24px] sm:text-[36px] md:text-[69.59px] leading-none tracking-[-0.03em] text-center uppercase text-[rgba(255,20,178,1)] drop-shadow-[0_0_10px_rgba(255,20,178,0.5)] z-10'>
               Create With No Limitations
             </h2>
             <h2 className='font-fort font-normal text-[18px] sm:text-[20px] md:text-[50px] leading-none tracking-[-0.03em] text-center uppercase text-transparent [-webkit-text-stroke:1px_rgba(255,20,178,0.5)] opacity-60'>
@@ -95,7 +91,7 @@ function Hero() {
         </div>
 
         {/* Info Grid */}
-        <div className='flex flex-wrap justify-center gap-8 md:gap-52 text-center mt-6 mb-2 shrink-0'>
+        <div className='flex flex-wrap justify-center gap-8 md:gap-52 text-center mt-12 mb-10 md:mt-6 md:mb-2 shrink-0'>
           <div>
             <p className='text-xs font-gabarito uppercase tracking-widest mb-1'>Date</p>
             <p className='text-lg font-bold font-fort'>1st - 2nd FEB</p>
@@ -114,19 +110,7 @@ function Hero() {
         <Countdown />
 
         {/* Bottom Navigation */}
-        <div className='w-full max-w-6xl flex flex-col md:flex-row items-center justify-between mt-auto pt-10 gap-4 shrink-0'>
-          {/* Left Hand Decoration */}
-          {/* <div className="hidden md:block w-32 relative opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <img src={backgorunds.leftsideflying} alt="Left Element" className="w-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-                    </div> */}
-
-          {/* Nav Menu Removed (Moved to top/absolute) */}
-
-          {/* Right Hand Decoration */}
-          {/* <div className="hidden md:block w-32 relative opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <img src={backgorunds.leftsideflying} alt="Left Element" className="w-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-                    </div> */}
-        </div>
+        <div className='w-full max-w-6xl flex flex-col md:flex-row items-center justify-between mt-auto pt-10 gap-4 shrink-0'></div>
       </div>
     </div>
   )
