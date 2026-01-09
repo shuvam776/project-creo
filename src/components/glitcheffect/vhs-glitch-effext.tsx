@@ -157,7 +157,7 @@ class VhsGlitchEffectImpl extends Effect {
     })
   }
 
-  update(renderer: unknown, inputBuffer: unknown, deltaTime: number) {
+  update(_renderer: unknown, _inputBuffer: unknown, deltaTime: number) {
     if (deltaTime) {
       this.uniforms.get('uTime')!.value += deltaTime
     }
