@@ -5,6 +5,7 @@ import Preloader from '@/components/ui/Preloader'
 import ApplySection from '@/components/applySection'
 import Footer from '@/components/marginals/footer'
 import NavBar from '@/components/marginals/navbar/NavBar'
+import { About } from './About'
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true)
@@ -20,6 +21,7 @@ export default function HomePage() {
       </div>
 
       <Hero />
+      <About />
       <ApplySection />
       <Footer />
     </main>
